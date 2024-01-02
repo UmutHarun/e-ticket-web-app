@@ -3,8 +3,8 @@ using e_ticket_web_app.Models;
 
 namespace e_ticket_web_app.Data.Services
 {
-    public interface IMovieService : IEntityBaseRepository<Movie>
+    public interface IMovieService : IEntityBaseRepository<NewMovieVM>
     {
-        public Task<Movie> GetMovieByIdAsync(int id);
+        public Task<NewMovieVM> GetMovieByIdAsync(int id);
     }
 }

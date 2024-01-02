@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Movie>
+﻿@model IEnumerable<NewMovieVM>
 
 @{
     ViewData["title"] = "List of Movies";
@@ -67,4 +67,8 @@
             </div>
         </div>
     }
+</div>
+
+<div class="text-white" style="position:fixed; right:25px; bottom:25px;">
+    <a asp-controller="Movies" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle me-2"></i>Add New</a>
 </div>

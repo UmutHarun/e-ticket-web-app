@@ -25,5 +25,10 @@ namespace e_ticket_web_app.Controllers
             var movie = await _service.GetMovieByIdAsync(id);
             return View(movie);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
