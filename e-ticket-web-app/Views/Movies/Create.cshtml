@@ -1,4 +1,5 @@
-﻿@model NewMovieVM
+﻿@using NewMovieVM = e_ticket_web_app.Data.ViewModels.NewMovieVM
+@model NewMovieVM
 
 @{
     ViewData["Title"] = "Create a movie";
@@ -12,70 +13,74 @@
 
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create" method="post">
+                <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="Name" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="Name"></label>
                                 <input asp-for="Name" class="form-control" />
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="StartDate" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="StartDate"></label>
                                 <input asp-for="StartDate" class="form-control" />
                                 <span asp-validation-for="StartDate" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="EndDate" class="form-control"></label>
+                            </div> 
+                            <div class="form-group mb-3">
+                                <label asp-for="EndDate"></label>
                                 <input asp-for="EndDate" class="form-control" />
                                 <span asp-validation-for="EndDate" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Price" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="Price"></label>
                                 <input asp-for="Price" class="form-control" />
                                 <span asp-validation-for="Price" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="ImageURL" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="ImageURL"></label>
                                 <input asp-for="ImageURL" class="form-control" />
                                 <span asp-validation-for="ImageURL" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="CinemaId" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="CinemaId"></label>
                                 <select asp-for="CinemaId" class="form-control" />
                                 <span asp-validation-for="CinemaId" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="MovieCategory" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="MovieCategory"></label>
                                 <select asp-for="MovieCategory" class="form-control" />
                                 <span asp-validation-for="MovieCategory" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="ProducerId" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="ProducerId"></label>
                                 <select asp-for="ProducerId" class="form-control" />
                                 <span asp-validation-for="ProducerId" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="ProducerId" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label asp-for="ProducerId"></label>
                                 <select asp-for="ProducerId" class="form-control" />
                                 <span asp-validation-for="ProducerId" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label name="ActorIds" class="form-control"></label>
+                            <div class="form-group mb-3">
+                                <label name="ActorIds"></label>
                                 <select name="ActorIds" class="form-control" multiple />
                                 @*<span asp-validation-for="ActorIds" class="text-danger"></span>*@
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-12">
                             <div class="form-group">
-                                <label asp-for="Description" class="form-control"></label>
-                                <textarea asp-for="Description" class="form-control"></textarea>
+                                <label asp-for="Description"></label>
+                                <textarea asp-for="Description"  class="form-control"></textarea>
                                 <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-success">Show All</button>
+                        <button class="btn btn-success" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -88,7 +93,7 @@
 
 @section Scripts{
     <script>
-        $("ImageUrl").on("change" , function() {
+        $("ImageUrl").on("change", function () {
             var output = document.getElementById("ImageUrlPreview");
             output.src = $(this).val();
         })

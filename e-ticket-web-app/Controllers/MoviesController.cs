@@ -1,5 +1,6 @@
 ﻿using e_ticket_web_app.Data;
 using e_ticket_web_app.Data.Services;
+using e_ticket_web_app.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,9 +27,16 @@ namespace e_ticket_web_app.Controllers
             return View(movie);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(NewMovieVM newMovieVM)
+        {
+            return RedirectToAction("Index");
         }
     }
 }
