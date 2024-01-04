@@ -18,6 +18,6 @@ namespace e_ticket_web_app.Models
         public string Description { get; set; }
 
         //Relationships
-        public List<NewMovieVM>? Movies { get; set; }
+        public List<Movie>? Movies { get; set; }
     }
 }

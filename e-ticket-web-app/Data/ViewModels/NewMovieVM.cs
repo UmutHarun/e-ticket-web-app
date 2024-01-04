@@ -5,6 +5,8 @@ namespace e_ticket_web_app.Data.ViewModels
 {
     public class NewMovieVM
     {
+        public int Id { get; set; } 
+
         [Display(Name = "Movie Name")]
         [Required(ErrorMessage = "Movie Name is required")]
         public string Name { get; set; }
