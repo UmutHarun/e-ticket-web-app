@@ -1,4 +1,5 @@
 using e_ticket_web_app.Data;
+using e_ticket_web_app.Data.Cart;
 using e_ticket_web_app.Data.Services;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,10 @@ builder.Services.AddScoped<IActorService,ActorsService>();
 builder.Services.AddScoped<IProducerService, ProducerService>();
 builder.Services.AddScoped<ICinemaService, CinemaService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+builder.Services.AddSession();
 
 
 var app = builder.Build();
@@ -36,6 +41,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 

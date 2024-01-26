@@ -15,6 +15,17 @@ namespace e_ticket_web_app.Data.Cart
             _context = context;
         }
 
+        public static ShoppingCart GetShoppingCart(IServiceProvider serviceProvider) 
+        {
+            ISession session = serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+            var context = serviceProvider.GetService<ApplicationDbContext>();
+
+            string cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
+            session.SetString("CartId", cartId);
+
+            return new ShoppingCart(context) { ShoppingCartId = cartId };
+        }
+
         public void AddItemToCart(Movie movie)
         {
             var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
@@ -65,6 +76,13 @@ namespace e_ticket_web_app.Data.Cart
         {
             var total = _context.ShoppingCartItems.Where(x => x.ShoppingCartId == ShoppingCartId).Select(n => n.Movie.Price * n.Amount).Sum();
             return total;   
+        }
+
+        public async Task ClearShoppingCartAsync()
+        {
+            var items = await _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).ToListAsync();
+            _context.ShoppingCartItems.RemoveRange(items);
+            await _context.SaveChangesAsync();
         }
     }
 }
