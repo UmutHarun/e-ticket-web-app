@@ -1,5 +1,5 @@
 
-# Codeblogger Admin Panel
+# E-ticket-Web
 
 The project I developed using ASP.NET Core 7.0 uses MVC architecture. Entity Framework Code First was used for dynamic database management. The N-Layer architectural structure was implemented in the project, giving priority to making the code more modular and sustainable.
 
