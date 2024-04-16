@@ -14,6 +14,15 @@ The project I developed using ASP.NET Core 7.0 uses MVC architecture. Entity Fra
 - JavaScript
 - Bootstrap
 
-![Açıklama](Screenshot/d1.PNG)
+![DES](ScreenShots/d1.PNG)
+![DES](ScreenShots/d2.PNG)
+![DES](ScreenShots/d3.PNG)
+![DES](ScreenShots/d4.PNG)
+![DES](ScreenShots/d5.PNG)
+![DES](ScreenShots/d6.PNG)
+![DES](ScreenShots/d7.PNG)
+![DES](ScreenShots/d8.PNG)
+
+
 
 
